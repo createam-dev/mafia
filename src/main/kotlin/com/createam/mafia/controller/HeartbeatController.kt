@@ -11,7 +11,7 @@ class HeartbeatController {
 
     val counter = AtomicLong()
 
-    @GetMapping("/greeting")
+    @GetMapping("/heartbeat")
     fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String) =
             Heartbeat(counter.incrementAndGet(), "Hello, $name")
 
