@@ -1,6 +1,10 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 
+out/
+
+*.lock
+
 ### STS ###
 .apt_generated
 .classpath
@@ -22,3 +26,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+.gradle/3.5.1/file-changes/last-build.bin
+.gradle/buildOutputCleanup/built.bin
+.gradle/buildOutputCleanup/cache.properties
