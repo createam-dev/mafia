@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<!--HEAD SECTION IMPORTS & STUFF-->
+<head id="head" th:fragment="head">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link type="text/css" rel="stylesheet" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+  <link type="text/css" rel="stylesheet" href="../style/style.css" th:href="@{../style/style.css}"/>
+
+  <script src="webjars/jquery/3.2.1/jquery.js"></script>
+  <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<!--FOOTER-->
+<th:block th:fragment="footer">
+  <footer id="footer" class="footer navbar-fixed-bottom">
+    <p th:text="'heartbeat id:' + ${heartbeat.id} + ' :: ' + ${heartbeat.content}"></p>
+  </footer>
+</th:block>
+
+<!--PARTICLES -->
+<th:block th:fragment="particles">
+  <script src="../js/particles.min.js"></script>
+  <div id="particles-js">
+    <script>
+      particlesJS.load('particles-js', '../config/particles.json', function () {
+        console.log('callback - particles.js config loaded');
+      });
+    </script>
+  </div>
+  <th:block th:include="fragments::footer"/>
+</th:block>
+
+</body>
+</html>
+
+
+

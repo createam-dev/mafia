@@ -1,18 +1,19 @@
 package com.createam.mafia.controller
 
-import com.createam.mafia.data.Heartbeat
+import com.createam.mafia.service.HeartbeatService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import java.util.concurrent.atomic.AtomicLong
+import javax.servlet.http.HttpServletRequest
 
 @RestController
 class HeartbeatController {
 
-    val counter = AtomicLong()
+    @Autowired
+    private val heartbeatService = HeartbeatService()
 
     @GetMapping("/heartbeat")
-    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String) =
-            Heartbeat(counter.incrementAndGet(), "Hello, $name")
+    fun greeting(request: HttpServletRequest) =
+            heartbeatService.getHeartbeat(request.remoteHost)
 
 }
