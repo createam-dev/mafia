@@ -23,7 +23,7 @@ class HttpsEnforcer (
 
         if (request.getHeader(X_FORWARDED_PROTO) != null) {
             if (request.getHeader(X_FORWARDED_PROTO).indexOf("https") != 0) {
-                response.sendRedirect("https://" + request.serverName + request.pathInfo)
+                response.sendRedirect("https://" + request.serverName)
                 return
             }
         }
